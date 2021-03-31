@@ -153,7 +153,7 @@
     <variable name="osdcasttype">
         <value condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">movie</value>
         <value condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">tv</value>
-    </variable> 
+    </variable>
 
     <variable name="mylistposition">
 	<value condition="String.IsEqual(Container(211).ListItem.Property(widgetmylistposition),true)">First Widget</value>
@@ -634,7 +634,7 @@
         <value condition="String.IsEqual(Container(1506).ListItem.Rating,10.0)"/>
     </variable>
     <variable name="widget_label1">
-   <value condition="String.IsEqual(ListItem.DBType,Episode)">S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]$INFO[Container($PARAM[id]).ListItem.Label  ]</value> 
+   <value condition="String.IsEqual(ListItem.DBType,Episode)">S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]$INFO[Container($PARAM[id]).ListItem.Label  ]</value>
         <value>$VAR[video_heading]</value>
     </variable>
 
@@ -693,7 +693,7 @@
     <variable name="tvshowspotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path)) + String.IsEqual(Skin.String(spotlighttvshows.label),Spotlight TV)">$INFO[Control.GetLabel(34449)]</value>
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
-    </variable> 
+    </variable>
 
     <!-- Spotlight Info @cartmandos -->
     <variable name="DetailsSpinImage">
@@ -746,7 +746,7 @@
 
    <variable name="home_simple_episode">
 	<value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
-   </variable>   
+   </variable>
 
    <variable name="home_simple_episode_1505">
         <value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[Container(1505).ListItem.Season] E$INFO[Container(1505).ListItem.Episode] - $INFO[Container(1505).ListItem.Title][/COLOR]</value>
@@ -836,7 +836,7 @@
         <value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration]</value>
         <value>$INFO[Player.Duration]</value>
     </variable>
-    
+
     <variable name="Label_OSD_FinishTime">
         <value condition="VideoPlayer.Content(livetv)">$INFO[System.Time,$LOCALIZE[555]  ,]$INFO[VideoPlayer.EndTime,[COLOR=main_fg_70]  •  $LOCALIZE[31106] ,[/COLOR]]</value>
         <value>$INFO[System.Time,$LOCALIZE[555]  ,]$INFO[Player.FinishTime,[COLOR=main_fg_70]  •  $LOCALIZE[31106] ,[/COLOR]]</value>
@@ -876,7 +876,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</value>
         <value condition="Integer.IsGreater(ListItem.Ratings(tomatometerallaudience),0)">$INFO[ListItem.Ratings(tomatometerallaudience)]</value>
     </variable>
-    
+
     <variable name="Label_WidgetItemLimit">
         <value condition="!String.IsEmpty(Skin.String(HomeWidgetItemLimit))">$INFO[Skin.String(HomeWidgetItemLimit)]</value>
         <value>$NUMBER[10]</value>
@@ -1028,7 +1028,7 @@
         <value condition="Container.Content(episodes)">$LOCALIZE[20343]$INFO[ListItem.TvShowTitle, / ,]$INFO[ListItem.Season, ($LOCALIZE[20373] ,)]</value>
         <value condition="Container.Content(seasons)">$VAR[Label_Header_Location,, / ]$INFO[ListItem.TvShowTitle]</value>
         <value condition="String.Contains(Container.FolderPath,videodb://inprogresstvshows/)">$LOCALIZE[626]</value>
-        
+
         <value condition="String.IsEqual(Container.FolderPath,musicdb://songs/)">$VAR[Label_Header_Location,, / ]$INFO[Container.FolderName]</value>
 
         <value condition="Container.Content(albums) + !String.Contains(Container.FolderPath,plugin://)">$VAR[Label_Header_Location,, / ]$INFO[Container.FolderName]</value>
@@ -1346,14 +1346,14 @@
         <value condition="Window.IsVisible(Home) + [!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDescription)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonNews))]">$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer),[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDescription),[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonNews),[B]$LOCALIZE[31303][/B][CR],[CR][CR]]</value>
         <value>[COLOR=white]$VAR[Label_Netflix_Tagline][CR][/COLOR]$INFO[ListItem.Artist,[B],[/B][CR]]$VAR[Label_Plot]</value>
     </variable>
-    
+
     <variable name="Label_Plot">
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
         <value condition="!String.IsEmpty(ListItem.PlotOutline) + Skin.HasSetting(PlotOutline)">$INFO[ListItem.PlotOutline]</value>
-        <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
+        <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Country,[,] ]$INFO[ListItem.Plot]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Country),[,] ]$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
     </variable>
 
     <variable name="AiredOnDay">
