@@ -1818,8 +1818,7 @@
           <orientation>vertical</orientation>
           <top>10</top>
           <!-- Add Clearlogo / Label -->
-<<<<<<< HEAD
-=======
+
           <control type="image" id="55447">
             <left>0</left>
             <right>$PARAM[titleright]</right>
@@ -1831,7 +1830,6 @@
             <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
             <visible>!String.IsEmpty(Control.GetLabel(55447))</visible>
           </control>
->>>>>>> home-clearart-first
 
           <control type="image" id="55446">
             <left>0</left>
