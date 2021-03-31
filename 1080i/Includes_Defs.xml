@@ -145,7 +145,7 @@
     <include name="top">
            <param name="top" default="" />
         <definition>
-	<top>$PARAM[top]</top>	
+	<top>$PARAM[top]</top>
         </definition>
     </include>
 
@@ -442,7 +442,7 @@
     <include name="Defs_ShadowBack_Fullscreen">
         <right>-360</right>
         <top>-85</top>
-        <texture>common/dark-shadow-24.png</texture>
+        <texture>common/shadowspot.png</texture>
         <height>300</height>
         <width>1000</width>
         <include>Animation_FadeIn_Slide</include>
@@ -841,7 +841,7 @@
                         <aspectratio>keep</aspectratio>
                     </control>
                     <control type="image">
-                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> 
+                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
                         <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
                         <aspectratio>keep</aspectratio>
                         <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
@@ -895,7 +895,7 @@
                         <aspectratio>keep</aspectratio>
                     </control>
                     <control type="image">
-                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> 
+                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
                         <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
                         <aspectratio>keep</aspectratio>
                         <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
