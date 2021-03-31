@@ -793,18 +793,21 @@
           <left>0</left>
           <bottom>40</bottom>
           <height>45</height>
-          <width>90</width>
-          <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+          <width>35%</width>
+          <texture background="true" colordiffuse="99FF0000">common/box.png</texture>
         </control>
-        <control type="textbox">
-          <bottom>20</bottom>
+        <control type="label">
+          <bottom>35</bottom>
           <left>4</left>
           <height>55</height>
-          <width>75</width>
+          <width>33%</width>
+          <align>right</align>
           <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
-          <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
+          <label>[I]$INFO[ListItem.Season, S,:]$INFO[ListItem.Episode,E] $INFO[ListItem.Title][/I]</label>
           <textcolor>white</textcolor>
           <font>widget_overlaybutton</font>
+          <scroll>true</scroll>
+          <scrollspeed>20</scrollspeed>
         </control>
       </control>
       <control type="group">
@@ -1235,7 +1238,7 @@
         <top>10</top>
         <width>500</width>
         <height>30</height>
-        <left>30</left>MMM 
+        <left>30</left>MMM
         <font>font_small</font>
         <textcolor>dimgrey</textcolor>
         <label>S$INFO[Container($PARAM[id]).ListItem.Season]: E$INFO[Container($PARAM[id]).ListItem.Episode] - $INFO[Container($PARAM[id]).ListItem.Label]</label>
@@ -1268,7 +1271,7 @@
         <height>60</height>
         <width>520</width>
         <left>30</left>
-        <font>font_large_bold</font> 
+        <font>font_large_bold</font>
         <textcolor>grey</textcolor>
         <label>$INFO[Container($PARAM[id]).ListItem.Label]</label>
         <scroll>true</scroll>
@@ -1351,7 +1354,7 @@
     <param name="landscapenetflixcondition" default="$PARAM[landscapenetflixcondition]" />
     <param name="landscapepanelcondition" default="$PARAM[landscapepanelcondition]" />
     <param name="postercondition" default="$PARAM[postercondition]" />
-    <definition>	
+    <definition>
     <animation type="Conditional" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))" reversible="false">
       <effect type="fade" start="0" end="100" time="200"  />
       <effect type="zoom" start="30,100" end="100,100" time="400" />
@@ -1406,7 +1409,7 @@
 	<include condition="$PARAM[postercondition]">Widget_Items_LandscapeDetails_Focused</include>
 	<include condition="$PARAM[landscapecondition]">Widget_Items_LandscapeDetails_Info</include>
 	</control>
-    </definition>	
+    </definition>
   </include>
 
 </includes>
