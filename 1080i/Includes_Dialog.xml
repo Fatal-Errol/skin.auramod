@@ -110,7 +110,7 @@
     <include name="Dialog_Notification_Group">
         <right>view_pad</right>
         <centertop>50%</centertop>
-        <height>200</height>
+        <height>80</height>
         <width>1200</width>
         <include>Animation_FadeIn_Slide</include>
         <include>Animation_FadeOut</include>
@@ -144,7 +144,7 @@
         <wrapmultiline>True</wrapmultiline>
         <align>right</align>
         <textcolor>main_fg_70</textcolor>
-        <font>font_statusbar</font>                
+        <font>font_statusbar</font>
     </include>
 
     <!-- ================ -->
@@ -316,7 +316,7 @@
                 <align>left</align>
                 <label>$PARAM[header_label]</label>
             </control>
-            
+
             <control type="textbox" id="$PARAM[textbox_id]">
                 <description>Line 1</description>
                 <left>15</left>
