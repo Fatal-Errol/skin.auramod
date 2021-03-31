@@ -1818,6 +1818,18 @@
           <orientation>vertical</orientation>
           <top>10</top>
           <!-- Add Clearlogo / Label -->
+          <control type="image" id="55447">
+            <left>0</left>
+            <right>$PARAM[titleright]</right>
+            <height>300</height>
+            <aligny>top</aligny>
+            <aspectratio align="left" aligny="bottom">keep</aspectratio>
+            <texture background="true">$VAR[NetflixHome_Clearart]</texture>
+            <animation effect="fade" start="0" end="100" time="500">Visible</animation>
+            <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
+            <visible>!String.IsEmpty(Control.GetLabel(55447))</visible>
+          </control>
+
           <control type="image" id="55446">
             <left>0</left>
             <right>$PARAM[titleright]</right>
@@ -1828,6 +1840,7 @@
             <animation effect="fade" start="0" end="100" time="500">Visible</animation>
             <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
             <visible>!String.IsEmpty(Control.GetLabel(55446))</visible>
+            <visible>String.IsEmpty(Control.GetLabel(55447))</visible>
           </control>
 <!--
           <control type="label">
@@ -1924,7 +1937,7 @@
           <control type="textbox">
             <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
             <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView) + ![String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)]</visible>
-            <height min="20" max="180">auto</height>
+            <height min="20" max="130">auto</height>
             <label fallback="19055">$VAR[Label_OverlayPlot]</label>
             <width>640</width>
             <aligny>top</aligny>
@@ -2266,11 +2279,11 @@
       <control type="group">
           <!-- trailer window -->
           <include content="Netflix_Trailer">
-            <param name="top" value="-115" />	
-            <param name="right" value="-40" />	
-            <param name="height" value="720" />	
-            <param name="width" value="1400" />	
-            <param name="visible" value="Player.HasVideo" />	
+            <param name="top" value="-115" />
+            <param name="right" value="-40" />
+            <param name="height" value="720" />
+            <param name="width" value="1400" />
+            <param name="visible" value="Player.HasVideo" />
           </include>
       </control>
       <control type="group">
@@ -2931,7 +2944,7 @@
       </control>
     </definition>
   </include>
-	
+
 
   <!-- cr to Titan Bingie mode-->
   <include name="Object_CircleWidget">
@@ -7247,8 +7260,8 @@
    <font>font_heading_small</font>
    <textcolor>white</textcolor>
    <label>[B]AuraHub[/B]</label>
-   </control> 
-   </control> 
+   </control>
+   </control>
 
       <control type="grouplist" id="505">
         <include>Animation_Right</include>
@@ -7871,7 +7884,7 @@
         <focusedlayout />
   </control>
   </include>
-  
+
   <include name="episode_list">
     <param name="id" default="" />
     <param name="visible" default="" />
