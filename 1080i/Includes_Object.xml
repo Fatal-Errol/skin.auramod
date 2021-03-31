@@ -1818,6 +1818,7 @@
           <orientation>vertical</orientation>
           <top>10</top>
           <!-- Add Clearlogo / Label -->
+
           <control type="image" id="55446">
             <left>0</left>
             <right>$PARAM[titleright]</right>
@@ -2266,11 +2267,11 @@
       <control type="group">
           <!-- trailer window -->
           <include content="Netflix_Trailer">
-            <param name="top" value="-115" />	
-            <param name="right" value="-40" />	
-            <param name="height" value="720" />	
-            <param name="width" value="1400" />	
-            <param name="visible" value="Player.HasVideo" />	
+            <param name="top" value="-115" />
+            <param name="right" value="-40" />
+            <param name="height" value="720" />
+            <param name="width" value="1400" />
+            <param name="visible" value="Player.HasVideo" />
           </include>
       </control>
       <control type="group">
@@ -2931,7 +2932,7 @@
       </control>
     </definition>
   </include>
-	
+
 
   <!-- cr to Titan Bingie mode-->
   <include name="Object_CircleWidget">
@@ -4187,7 +4188,6 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
           <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
@@ -4201,7 +4201,6 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
           <visible>!Control.IsVisible(1506) +  [String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
@@ -4216,6 +4215,47 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="label">
+          <textcolor>main_fg_70</textcolor>
+          <top>12</top>
+          <width>auto</width>
+          <height>28</height>
+          <align>right</align>
+          <font>font_tiny</font>
+          <label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)]</label>
+          <scroll>true</scroll>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>!Control.IsVisible(1506) +  [String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="label">
+          <textcolor>main_fg_70</textcolor>
+          <top>12</top>
+          <width max="300">auto</width>
+          <height>28</height>
+          <align>left</align>
+          <font>font_tiny</font>
+          <label>$INFO[ListItem.Studio]</label>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>!String.IsEmpty(ListItem.Studio)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="label">
+          <textcolor>main_fg_70</textcolor>
+          <top>12</top>
+          <width>auto</width>
+          <height>28</height>
+          <align>right</align>
+          <font>font_tiny</font>
+          <label>$INFO[Container(1505).ListItem.Studio]</label>
+          <scroll>true</scroll>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio)</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
       </control>
@@ -7247,8 +7287,8 @@
    <font>font_heading_small</font>
    <textcolor>white</textcolor>
    <label>[B]AuraHub[/B]</label>
-   </control> 
-   </control> 
+   </control>
+   </control>
 
       <control type="grouplist" id="505">
         <include>Animation_Right</include>
@@ -7871,7 +7911,7 @@
         <focusedlayout />
   </control>
   </include>
-  
+
   <include name="episode_list">
     <param name="id" default="" />
     <param name="visible" default="" />
