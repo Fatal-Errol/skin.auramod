@@ -346,72 +346,43 @@
         <animation effect="slide" end="0,100" time="0" condition="!Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-20,10" time="10" condition=" !Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
-        <control type="image" id="59445">
-          <top>40</top>
-          <left>150</left>
-          <height min="60" max="218">auto</height>
-          <width>510</width>
-          <aligny>top</aligny>
-          <align>left</align>
-          <aspectratio align="left" aligny="center">keep</aspectratio>
-          <texture background="true">$VAR[Widget_ClearLogo_1506]</texture>
-        </control>
+
         <control type="textbox">
-          <visible>String.IsEmpty(Container(1506).ListItem.Art(clearlogo))</visible>
-          <top>130</top>
-          <left>140</left>
+          <top>380</top>
+          <left>100</left>
           <label>[B]$VAR[video_heading_1506][/B]</label>
-          <textcolor>grey</textcolor>
+          <textcolor>ffdedede</textcolor>
           <shadowcolor>black</shadowcolor>
-          <font>font_heading</font>
-          <width min="200" max="500">auto</width>
-          <height min="30" max="115">auto</height>
-          <align>center</align>
-          <wrapmultiline>true</wrapmultiline>
-          <scroll>true</scroll>
+          <font>font_showcase_title</font>
+          <height>80</height>
+          <align>left</align>
+          <nested />
         </control>
-        <!-- Episode Label  -->
-        <control type="group">
-          <top>260</top>
-          <control type="label">
-            <left>160</left>
-            <height min="55" max="90">auto</height>
-            <visible>String.IsEqual(Container(1506).ListItem.DBType,episode)</visible>
-            <label fallback="19055">$VAR[home_simple_episode_1506]</label>
-            <width>750</width>
-            <textcolor>white</textcolor>
-            <shadowcolor>black</shadowcolor>
-            <wrapmultiline>true</wrapmultiline>
-            <font>font_medium_bold</font>
-          </control>
-          <!-- Aired -->
-          <control type="label">
-            <top>100</top>
-            <left>160</left>
-            <visible>String.IsEqual(Container(1506).ListItem.DBType,episode)</visible>
-            <label fallback="19055">[I]Aired $INFO[Container(1506).ListItem.Premiered(DDD MMM yyyy)] on $INFO[Container(1506).ListItem.Studio][/I]</label>
-            <height>30</height>
-            <width>750</width>
-            <textcolor>main_fg_100</textcolor>
-            <shadowcolor>black</shadowcolor>
-            <font>font_small</font>
-          </control>
-        </control>
+
         <control type="textbox">
-          <left>150</left>
-          <top>260</top>
-          <height min="50" max="95">auto</height>
+          <left>100</left>
+          <top>460</top>
+          <height min="50" max="130">auto</height>
           <label>$INFO[Container(1506).ListItem.Plot]</label>
           <align>left</align>
-          <width>500</width>
-          <textcolor>dimgrey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>widget_trakt_title</font>
-          <autoscroll>0</autoscroll>
-          <visible>!String.IsEqual(Container(1506).ListItem.DBType,episode)</visible>
+          <width>800</width>
+          <textcolor>b3dedede</textcolor>
+          <font>font_plotbox</font>
+          <scroll>true</scroll>
+          <scrollout>false</scrollout>
+          <autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
         </control>
         <control type="label">
           <height>5</height>
+        </control>
+        <control type="group">
+          <control type="image">
+            <top>410</top>
+            <right>20</right>
+              <height>250</height>
+              <aspectratio align="right" aligny="bottom">keep</aspectratio>
+              <texture background="true">$VAR[Widget_ClearArt_1506]</texture>
+          </control>
         </control>
       </control>
     </control>
@@ -937,7 +908,7 @@
             </control>
           </control>
         </focusedlayout>
-        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="5">$PARAM[content]</content>
+        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="25">$PARAM[content]</content>
       </control>
       <control type="group">
         <visible>Control.HasFocus(30222) | Control.HasFocus($PARAM[id]) | Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)</visible>
@@ -976,7 +947,7 @@
         <onfocus>SetFocus(505)</onfocus>
         <itemlayout width="1980" height="1080"></itemlayout>
         <focusedlayout width="1980" height="1080"></focusedlayout>
-        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="5">$VAR[tvshowfullspotlightpath]</content>
+        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="25">$VAR[tvshowfullspotlightpath]</content>
       </control>
     </control>
   </include>
@@ -1070,7 +1041,7 @@
         <animation effect="fade" start="0" end="100" delay="200" time="600" condition="!Control.HasFocus(300)">Visible</animation>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
-        <autoscroll time="7000">Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
+        <autoscroll time="14000">Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
         <visible>[Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus(1506) | ControlGroup(506).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <defaultcontrol>4000</defaultcontrol>
@@ -1090,7 +1061,7 @@
         <onfocus>SetFocus(506)</onfocus>
         <itemlayout width="1980" height="1080"></itemlayout>
         <focusedlayout width="1980" height="1080"></focusedlayout>
-        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="5">$VAR[moviefullspotlightpath]</content>
+        <content target="videos" sortby="$VAR[spotlight_sortby]" sortorder="descending" limit="25">$VAR[moviefullspotlightpath]</content>
       </control>
     </control>
   </include>
@@ -1304,7 +1275,7 @@
             </control>
          </control>
         </focusedlayout>
-        <content target="videos" sortby="$VAR[spotlight_sortby]" limit="5">$PARAM[content]</content>
+        <content target="videos" sortby="$VAR[spotlight_sortby]" limit="25">$PARAM[content]</content>
       </control>
       <control type="group">
         <top>-20</top>
@@ -1350,11 +1321,13 @@
       <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
       <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
       <onright>Control.Move(1506,1)</onright>
-      <onleft>300</onleft>
+      <onleft>Control.Move(1506,-1)</onleft>
+      <!-- <onleft>300</onleft> -->
       <width>600</width>
       <height>80</height>
       <itemgap>0</itemgap>
       <visible>[Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1506) | ControlGroup(506).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0)</visible>
+      <visible>!Control.HasFocus(300)</visible>
       <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
       <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
       <control type="radiobutton" id="5061">
@@ -1391,6 +1364,7 @@
         <label>[B]More Info[/B]</label>
         <textcolor>white</textcolor>
         <focusedcolor>black</focusedcolor>
+        <texture colordiffuse="$PARAM[colordiffuse-texture]" border="50,50,0,50">$PARAM[texture]</texture>
         <texturefocus colordiffuse="d9ffffff" border="5">common/rounded-shadow8.png</texturefocus>
         <texturenofocus colordiffuse="darkgrey" border="5">common/rounded-shadow8.png</texturenofocus>
         <font>Reg28</font>
@@ -2536,7 +2510,7 @@
       <ondown>330</ondown>
       <onleft>300</onleft>
       <onback>300</onback>
-      <visible allowhiddenfocus="true">Control.HasFocus(30222) + Skin.HasSetting(DisableAuraHomeLayout)</visible>
+      <visible allowhiddenfocus="true">[Control.HasFocus(5062) | Control.HasFocus(5061) | Control.HasFocus(30222)] + Skin.HasSetting(DisableAuraHomeLayout)</visible>
       <!--      <visible>Window.IsVisible(Home)</visible> -->
       <include>Home_Widget_SubMenu_Items</include>
       <include>Home_Widget_SubMenu_Layout_icon_fixed</include>
@@ -3389,7 +3363,7 @@
         <param name="align" value="left" />
         <param name="width" value="1200" />
         <param name="rottentomatoes" value="true" />
-        <param name="imdbvotes" value="false" />
+        <param name="imdbvotes" value="true" />
         <param name="usermeter" value="false" />
         <param name="imdb" value="true" />
         <param name="tmdb" value="true" />
@@ -3808,11 +3782,11 @@
     <param name="usermeter" default="true" />
     <param name="imdb" default="true" />
     <param name="tmdb" default="true" />
-    <param name="tvdb" default="false" />
+    <param name="tvdb" default="true" />
     <param name="metacritic" default="true" />
     <param name="oscars" default="true" />
-    <param name="top250" default="false" />
-    <param name="studio" default="false" />
+    <param name="top250" default="true" />
+    <param name="studio" default="true" />
     <definition>
       <include content="Object_Ratings_Content" condition="!Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="$PARAM[directory]" />
@@ -3863,7 +3837,7 @@
     <param name="oscars" default="true" />
     <param name="top250" default="true" />
     <param name="plot" default="false" />
-    <param name="studio" default="false" />
+    <param name="studio" default="true" />
     <param name="trakt" default="true" />
     <param name="star" default="true" />
     <param name="studiodirectory" default="coloured" />
@@ -4230,6 +4204,19 @@
           <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Container(1506).ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>Control.IsVisible(1506) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
           <top>12</top>
@@ -4255,6 +4242,7 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEmpty(ListItem.Studio)</visible>
+          <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="label">
@@ -4269,6 +4257,20 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="label">
+          <textcolor>main_fg_70</textcolor>
+          <top>12</top>
+          <width>auto</width>
+          <height>28</height>
+          <align>right</align>
+          <font>font_tiny</font>
+          <label>$INFO[Container(1506).ListItem.Studio]</label>
+          <scroll>true</scroll>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>Control.IsVisible(1506) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio)</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
       </control>

@@ -75,19 +75,19 @@
             </control>
            <control type="group">
         	<left>130</left>
-        	<top>390</top> 
+        	<top>390</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
         	<animation effect="slide" end="0,40" time="0" condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">Conditional</animation>
         	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Tvshows_buttons</include>
             </control>
            <control type="group">
-        	<left>130</left>
-        	<top>390</top>
+        	<left>85</left>
+        	<top>610</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
         	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_buttons</include>
            </control>
        </control>
-	
+
 	<include>main_menu_title</include>
 
         <include condition="!Skin.HasSetting(DisableNetflixLargeWidget)" content="Widgets_Grouplist_Large">
@@ -278,14 +278,14 @@
                                     <label>$INFO[ListItem.Label2]</label>
                                 </control>
                             </control>
-                            
+
                         </control>
                         <!-- Highlight -->
                         <control type="group">
                             <include>View_Selectbox</include>
                         </control>
                     </control>
-                    
+
                 </focusedlayout>
                 <content>
                     <!-- Column 1 -->
@@ -303,7 +303,7 @@
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                         <icon>special://skin/extras/icons/tags.png</icon>
                     </item>
-                    
+
                     <item id="9">
                         <description>System</description>
                         <label>13000</label>
@@ -343,7 +343,7 @@
                         <onclick>activatewindow(7)</onclick>
                         <icon>special://skin/extras/icons/sysinfo.png</icon>
                     </item>
-                    
+
                     <item id="8">
                         <description>PVR Settings</description>
                         <label>19191</label>
@@ -359,8 +359,8 @@
                         <onclick>activatewindow(AddonBrowser)</onclick>
                         <icon>special://skin/extras/icons/addon.png</icon>
                     </item>
-                    
-                    
+
+
                     <!-- Column 4 -->
                     <item id="3">
                         <description>Profiles</description>
@@ -369,7 +369,7 @@
                         <onclick>activatewindow(Profiles)</onclick>
                         <icon>special://skin/extras/icons/actor.png</icon>
                     </item>
-                    
+
                     <item id="14">
                         <description>Library</description>
                         <label>14202</label>
@@ -567,7 +567,7 @@
 			<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
 			<include condition="!$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height</include>
                         <include condition="$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height_poster</include>
-	
+
                 <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
 
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
@@ -793,7 +793,7 @@
 		<param name="top" default="0" />
 		<param name="height" default="480" />
 		<definition>
-		    
+
 		    <include content="Widget_Common">
 			<param name="top" value="$PARAM[top]" />
 			<param name="height" value="$PARAM[height]" />
@@ -806,7 +806,7 @@
 		    <itemlayout width="182" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
 			<include>Widget_Submenu_ItemLayout</include>
 		    </itemlayout>
-		    
+
 		    <focusedlayout width="182" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
 			<include content="Widget_Submenu_FocusedLayout">
 			    <param name="id" value="$PARAM[id]" />
@@ -816,7 +816,7 @@
 		    <itemlayout width="366" height="210" condition="Skin.HasSetting(SubmenuLabel)">
 			<include>Widget_Submenu_ItemLayout</include>
 		    </itemlayout>
-		    
+
 		    <focusedlayout width="366" height="210" condition="Skin.HasSetting(SubmenuLabel)">
 			<include content="Widget_Submenu_FocusedLayout">
 			    <param name="id" value="$PARAM[id]" />
@@ -1166,7 +1166,7 @@
                         <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
                     </control>
                 </control>
- 
+
                <control type="group">
                     <include>View_Selectbox</include>
                 </control>
@@ -1334,7 +1334,7 @@
                     <bottom>0</bottom>
                     <texture background="true" diffuse="diffuse/widgetsquare.png">$VAR[Image_Fanart]</texture>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible> 
+		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible>
                 </control>
             <control type="image">
 		<width>70%</width>
@@ -1344,7 +1344,7 @@
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
-		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible> 
+		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible>
             </control>
 
                 <control type="image">
@@ -1484,7 +1484,7 @@
             </control>
         </definition>
     </include>
-    
+
     <include name="selectbox_landscapedetails_height"><width>200</width></include>
     <include name="Widget_Items_FocusedLayout">
         <param name="genres" default="false" />
@@ -1577,4 +1577,3 @@
         </definition>
     </include>
 </includes>
-

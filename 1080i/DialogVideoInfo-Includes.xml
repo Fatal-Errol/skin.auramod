@@ -1075,11 +1075,36 @@
     </control>
     <control type="image" id="7878">
       <right>20</right>
-      <bottom>50</bottom>
+      <bottom>55</bottom>
       <texture background="true">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
       <aspectratio>stretch</aspectratio>
-      <height>108</height>
-      <width>150</width>
+      <height>168</height>
+      <width>210</width>
+      <align>right</align>
+      <aligny>bottom</aligny>
+      <visible>!String.Contains(ListItem.Studio,/)</visible>
+    </control>
+    <control type="image">
+      <right>20</right>
+      <bottom>55</bottom>
+      <texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.coloured/,.png]</texture>
+      <aspectratio>stretch</aspectratio>
+      <height>168</height>
+      <width>210</width>
+      <align>right</align>
+      <aligny>bottom</aligny>
+      <visible>String.Contains(ListItem.Studio,/)</visible>
+    </control>
+    <control type="label">
+      <right>20</right>
+      <bottom>30</bottom>
+      <align>right</align>
+      <height>50</height>
+      <width max="400">auto</width>
+      <font>Netflix_Info_main</font>
+      <label>$INFO[ListItem.Studio]</label>
+      <textcolor>white</textcolor>
+      <wrapmultiline>false</wrapmultiline>
     </control>
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
@@ -1656,7 +1681,7 @@
 
 
 		<!------- TOMATO BLOCK -------->
-		
+
 		<control type="group">
 			<description>Tomato Block</description>
 		        <top>100</top>
@@ -1665,7 +1690,7 @@
 			<visible>!String.IsEmpty(ListItem.Property(rottentomatoes_consensus)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus))</visible>
 			<control type="grouplist"><!-- START First Column -->
 				<description>First Column</description>
-				
+
 				<left>130</left>
 				<top>215</top>
 				<control type="group">
@@ -1694,13 +1719,13 @@
 					</control>
 				</control>
 			</control><!-- END First Column -->
-			
+
 			<control type="grouplist"><!-- START Second Column -->
 				<description>Second Column</description>
-				
+
 				<left>510</left>
 				<top>220</top>
-				
+
 				<control type="group">
 					<height>36</height>
 					<control type="label">
@@ -1724,7 +1749,7 @@
 						<aligny>center</aligny>
 					</control>
 				</control>
-				
+
 				<control type="group">
 					<height>36</height>
 					<control type="label">
@@ -1746,10 +1771,10 @@
 						<scrollspeed>15</scrollspeed>
 						<label fallback="19055">$VAR[videoinfo_budget]</label>
 						<aligny>center</aligny>
-						
+
 					</control>
 				</control>
-				
+
 				<control type="group">
 					<height>36</height>
 					<control type="label">
@@ -1772,21 +1797,21 @@
 					</control>
 				</control>
 			</control><!-- END Second Column -->
-			
+
 			<control type="group">
 				<top>410</top>
 				<right>10</right>
 				<height>25</height>
-				
+
 				<control type="label">
 					<left>30</left>
 					<font>font_small</font>
 					<textcolor>white</textcolor>
 					<label>[B]Critics Consensus[/B]</label>
 				</control>
-				
+
 			</control>
-			
+
 			<control type="grouplist"><!-- Critics Consensus and Cast Contents -->
 				<description>Critics Consensus and Cast Contents</description>
 				<orientation>horizontal</orientation>
@@ -1796,7 +1821,7 @@
 				<itemgap>60</itemgap>
 				<visible>String.IsEqual(Container(8999).ListItem.Label,More Info)</visible>
 				<animation effect="fade" start="0" end="100" time="50">VisibleChange</animation><!-- Necessary to avoid Control buttons overlapping -->
-				
+
 				<control type="textbox">
 					<description>Critics Consensus</description>
                                         <font>font_plotbox</font>
@@ -1806,7 +1831,7 @@
 					<label fallback="No reviews available">[I]"$VAR[videoinfo_consensus]"[/I]</label>
 				</control>
 			</control>
-			
+
 			<control type="image">
 				<description>Rotten logo 59% or less</description>
 				<left>56</left>
@@ -1834,7 +1859,7 @@
 				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 75)</visible>
 				<texture>http://d3biamo577v4eu.cloudfront.net/static/images/icons/cf-lg.png</texture>
 			</control>
-			
+
 			<control type="image">
 				<description>Popcorn Logo</description>
 				<left>60</left>
@@ -1854,7 +1879,7 @@
 				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
 				<texture>flags/color/ratings/spilt.png</texture>
 			</control>
-			
+
 		</control>
 
       <control type="grouplist" id="9000">

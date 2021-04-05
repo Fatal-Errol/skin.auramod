@@ -82,11 +82,11 @@
             <include>Dimensions_Fullscreen</include>
         </control>
     </include>
-    
+
     <include name="Global_Visualisation">
         <control type="group">
             <visible>String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + Player.HasAudio + Skin.HasSetting(global.showvisualisation)</visible>
-            
+
             <control type="visualisation">
                 <visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + [!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)]]</visible>
                 <description>visualisation</description>
@@ -94,7 +94,7 @@
                 <include>Animation_FadeIn</include>
                 <include>Animation_FadeOut</include>
             </control>
-            
+
             <control type="multiimage">
                 <aspectratio>scale</aspectratio>
                 <include>Dimensions_Fullscreen</include>
@@ -155,6 +155,11 @@
 
             <!-- Texture Overlay -->
             <control type="group">
+              <nested />
+            <left>0</left>
+            <right>0</right>
+            <top>-180</top>
+            <bottom>-65</bottom>
 		<visible>![Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(DisableNetflixVideoInfo)]</visible>
                 <animation effect="fade" condition="Control.HasFocus(9602)" start="100" end="0" delay="200" time="300" reversible="false">Conditional</animation>
                 <animation effect="fade" condition="!Control.HasFocus(9602)" start="0" end="100" delay="0" time="300" reversible="false">Conditional</animation>
@@ -164,12 +169,20 @@
                 </control>
                 <!-- Vignette Overlay -->
                 <control type="image">
+                    <bottom>480</bottom>
                     <texture colordiffuse="$VAR[ColorOverlay]" background="true">common/vignette-white.png</texture>
                     <visible>!Skin.HasSetting(DisableOverlayColor)</visible>
                 </control>
                 <control type="image">
-                    <texture background="true">common/vignette-full.png</texture>
+                    <bottom>480</bottom>
+                    <texture background="true" colordiffuse="cdffffff">common/vignette-home.png</texture>
                     <visible>!Skin.HasSetting(DisableVignette)</visible>
+                </control>
+                <control type="image">
+                    <bottom>0</bottom>
+                    <height>480</height>
+                    <texture colordiffuse="cdffffff">common/vignette-home-bottom.png</texture>
+                    <include>Animation_FadeInOut_Common</include>
                 </control>
             </control>
 
@@ -263,7 +276,7 @@
         <value condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)] + [Control.HasFocus(215) | Control.HasFocus(8215)] + !String.IsEmpty(Container(215).ListItem.Property(Fanart))">$INFO[Container(215).ListItem.Property(Fanart)]</value>
 
         <!-- Weather -->
-        <value condition="[Window.IsVisible(weather) | [Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.Contains(Container(300).ListItem.Property(widgetType),Weather Widget)]]] + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,/]</value>     
+        <value condition="[Window.IsVisible(weather) | [Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.Contains(Container(300).ListItem.Property(widgetType),Weather Widget)]]] + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,/]</value>
 
         <!-- Animated Fanart -->
         <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>

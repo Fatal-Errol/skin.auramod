@@ -373,7 +373,7 @@
             <size>70</size>
         </font>
 
-        <!-- Big weather temp -->        
+        <!-- Big weather temp -->
         <font>
             <name>font_weather_currenttemp</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
@@ -435,14 +435,22 @@
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
-        
+
+        <font>
+            <name>font_plotbox</name>
+            <filename>Roboto-Regular-Linespacing.ttf</filename>
+            <linespacing>1</linespacing>
+            <size>29</size>
+            <aspect>0.9</aspect>
+        </font>
+
         <!-- EPG Timeline time and date -->
         <font>
             <name>font_epg_timeline</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
             <size>24</size>
         </font>
-        
+
 
 
 
@@ -660,7 +668,7 @@
             <filename>lyrics/Exo2-BlackItalic.ttf</filename>
             <linespacing>0.85</linespacing>
             <size>62</size>
-        </font> 
+        </font>
         <font>
             <name>lyr14</name>
             <style>uppercase</style>
@@ -907,7 +915,7 @@
             <size>50</size>
         </font>
 
-        <!-- Big weather temp -->        
+        <!-- Big weather temp -->
         <font>
             <name>font_weather_currenttemp</name>
             <filename>Arial.ttf</filename>
@@ -966,7 +974,7 @@
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
-        
+
         <!-- EPG Timeline time and date -->
         <font>
             <name>font_epg_timeline</name>
@@ -974,7 +982,7 @@
             <aspect>0.8</aspect>
             <size>18</size>
         </font>
-        
+
 
 
 
@@ -1185,7 +1193,7 @@
             <filename>lyrics/Exo2-BlackItalic.ttf</filename>
             <linespacing>0.85</linespacing>
             <size>62</size>
-        </font> 
+        </font>
         <font>
             <name>lyr14</name>
             <style>uppercase</style>

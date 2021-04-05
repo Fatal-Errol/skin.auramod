@@ -796,6 +796,8 @@
     <variable name="imdb_votes">
        <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes), (, $LOCALIZE[205])]</value>
        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>
+       <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB))">$INFO[Container(1506).ListItem.Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>
+
     </variable>
 
     <variable name="imdb_ratings">
