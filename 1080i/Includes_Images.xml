@@ -316,6 +316,8 @@
     <variable name="Widget_ClearArt_1506">
         <value condition="!String.IsEmpty(Container(1506).ListItem.Art(tvshow.clearart))">$INFO[Container(1506).ListItem.Art(tvshow.clearart)]</value>
         <value condition="!String.IsEmpty(Container(1506).ListItem.Art(clearart))">$INFO[Container(1506).ListItem.Art(clearart)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1506).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">$INFO[Container(1506).ListItem.Art(clearlogo)]</value>
     </variable>
 
 

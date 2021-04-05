@@ -181,8 +181,8 @@
                 <control type="image">
                     <bottom>0</bottom>
                     <height>480</height>
-                    <texture colordiffuse="cdffffff">common/vignette-home-bottom.png</texture>
-                    <include>Animation_FadeInOut_Common</include>
+                    <texture background="true" colordiffuse="cdffffff">common/vignette-home-bottom.png</texture>
+                    <visible>!Skin.HasSetting(DisableVignette)</visible>
                 </control>
             </control>
 

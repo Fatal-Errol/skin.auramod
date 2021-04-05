@@ -82,7 +82,7 @@
             </control>
            <control type="group">
         	<left>85</left>
-        	<top>610</top>
+        	<top>600</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
         	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_buttons</include>
            </control>

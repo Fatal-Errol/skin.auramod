@@ -348,7 +348,7 @@
         <animation effect="slide" end="-20,10" time="10" condition=" !Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
 
         <control type="textbox">
-          <top>380</top>
+          <top>375</top>
           <left>100</left>
           <label>[B]$VAR[video_heading_1506][/B]</label>
           <textcolor>ffdedede</textcolor>
@@ -377,9 +377,9 @@
         </control>
         <control type="group">
           <control type="image">
-            <top>410</top>
+            <top>370</top>
             <right>20</right>
-              <height>250</height>
+              <height>300</height>
               <aspectratio align="right" aligny="bottom">keep</aspectratio>
               <texture background="true">$VAR[Widget_ClearArt_1506]</texture>
           </control>
@@ -1336,7 +1336,7 @@
         <description>Play</description>
         <width>240</width>
         <height>80</height>
-        <label>[CAPITALIZE][B]Play[/B][/CAPITALIZE]</label>
+        <label>PLAY</label>
         <align>center</align>
         <textcolor>grey</textcolor>
         <focusedcolor>black</focusedcolor>
@@ -1346,10 +1346,10 @@
         <textureradioofffocus colordiffuse="black">netflix/play.png</textureradioofffocus>
         <textureradioonnofocus colordiffuse="white">netflix/play.png</textureradioonnofocus>
         <textureradiooffnofocus colordiffuse="white">netflix/play.png</textureradiooffnofocus>
-        <radioposx>45</radioposx>
-        <radiowidth>25</radiowidth>
-        <radioheight>35</radioheight>
-        <font>Reg28</font>
+        <radioposx>65</radioposx>
+        <radiowidth>20</radiowidth>
+        <radioheight>20</radioheight>
+        <font>font_button</font>
         <!--                    <onclick condition="!String.IsEmpty(ListItem.DBID)">PlayMedia($ESCINFO[Container(1506).ListItem.FileNameAndPath])</onclick> -->
         <onclick>SetProperty(SpotlightPlay,1,Home)</onclick>
         <onclick>SetFocus(1506)</onclick>
@@ -1361,13 +1361,12 @@
         <width>280</width>
         <height>80</height>
         <align>center</align>
-        <label>[B]More Info[/B]</label>
+        <label>More Info</label>
         <textcolor>white</textcolor>
         <focusedcolor>black</focusedcolor>
-        <texture colordiffuse="$PARAM[colordiffuse-texture]" border="50,50,0,50">$PARAM[texture]</texture>
         <texturefocus colordiffuse="d9ffffff" border="5">common/rounded-shadow8.png</texturefocus>
         <texturenofocus colordiffuse="darkgrey" border="5">common/rounded-shadow8.png</texturenofocus>
-        <font>Reg28</font>
+        <font>font_button</font>
         <onclick condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onclick>
         <onclick>SetProperty(ShowSpotlightInfo,1,Home)</onclick>
         <onclick>SetFocus(1506)</onclick>
@@ -5264,7 +5263,7 @@
         <control type="group">
         <control type="label">
           <top>-5</top>
-          <right>215</right>
+          <right>230</right>
           <width>80</width>
           <height>60</height>
           <font>font_small</font>
@@ -5275,7 +5274,7 @@
         </control>
           <control type="image">
 	    <top>0</top>
-            <right>300</right>
+            <right>320</right>
             <width>50</width>
             <height>50</height>
             <aligny>center</aligny>
@@ -5285,7 +5284,7 @@
           </control>
           <control type="image">
 	    <top>0</top>
-            <right>300</right>
+            <right>320</right>
             <width>50</width>
             <height>50</height>
             <aligny>center</aligny>
@@ -5295,7 +5294,7 @@
           </control>
         </control>
         <control type="button">
-          <right>300</right>
+          <right>320</right>
           <width>50</width>
           <height>50</height>
           <label></label>
@@ -5309,7 +5308,7 @@
         </control>
         <control type="label">
             <top>-5</top>
-            <right>140</right>
+            <right>150</right>
             <width>100</width>
             <height>60</height>
             <font>font_small</font>
