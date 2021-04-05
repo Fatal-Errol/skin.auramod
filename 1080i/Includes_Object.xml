@@ -5264,7 +5264,7 @@
         <control type="group">
         <control type="label">
           <top>-5</top>
-          <right>205</right>
+          <right>215</right>
           <width>80</width>
           <height>60</height>
           <font>font_small</font>
@@ -5274,20 +5274,20 @@
           <visible>Weather.IsFetched</visible>
         </control>
           <control type="image">
-	    <top>-5</top>
-            <right>290</right>
-            <width>60s</width>
-            <height>60s</height>
+	    <top>0</top>
+            <right>300</right>
+            <width>50</width>
+            <height>50</height>
             <aligny>center</aligny>
             <aspectratio>keep</aspectratio>
             <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
             <visible>Weather.IsFetched + !Container($PARAM[id]).IsUpdating</visible>
           </control>
           <control type="image">
-	    <top>-5</top>
-            <right>290</right>
-            <width>60s</width>
-            <height>60s</height>
+	    <top>0</top>
+            <right>300</right>
+            <width>50</width>
+            <height>50</height>
             <aligny>center</aligny>
             <aspectratio>keep</aspectratio>
             <texture colordiffuse="main_fg_100">special://skin/extras/icons/updatelibrary.png</texture>
@@ -5295,9 +5295,9 @@
           </control>
         </control>
         <control type="button">
-          <right>290</right>
-          <width>60s</width>
-          <height>60s</height>
+          <right>300</right>
+          <width>50</width>
+          <height>50</height>
           <label></label>
           <aligny>center</aligny>
           <onclick>Dialog.Close(contextmenu)</onclick>
@@ -5309,7 +5309,7 @@
         </control>
         <control type="label">
             <top>-5</top>
-            <right>130</right>
+            <right>140</right>
             <width>100</width>
             <height>60</height>
             <font>font_small</font>
