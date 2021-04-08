@@ -657,6 +657,12 @@
     <value condition="String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),1)">$INFO[Container(5055).ListItem.Property(TotalSeasons)] Season</value>
     <value condition="!String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),0) + !String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),1)">$INFO[Container(5055).ListItem.Property(TotalSeasons)] Seasons</value>
     </variable>
+    <variable name="total_seasons_view506">
+      <value condition="String.IsEqual(Container(1506).ListItem.Property(TotalSeasons),1)">$INFO[Container(1506).ListItem.Property(TotalSeasons)] Season</value>
+      <value condition="!String.IsEmpty(Container(1506).ListItem.Property(TotalSeasons)) + !String.IsEqual(Container(1506).ListItem.Property(TotalSeasons),0) + !String.IsEqual(Container(1506).ListItem.Property(TotalSeasons),1)">$INFO[Container(1506).ListItem.Property(TotalSeasons)] Seasons</value>
+      <value condition="String.IsEqual(Container(5066).ListItem.Property(TotalSeasons),1)">$INFO[Container(5066).ListItem.Property(TotalSeasons)] Season</value>
+      <value condition="!String.IsEqual(Container(5066).ListItem.Property(TotalSeasons),0) + !String.IsEqual(Container(5066).ListItem.Property(TotalSeasons),1)">$INFO[Container(5066).ListItem.Property(TotalSeasons)] Seasons</value>
+    </variable>
     <variable name="videoinfo_play_label">
     <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Title]</value>
     </variable>

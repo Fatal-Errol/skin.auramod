@@ -347,39 +347,26 @@
         <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-20,10" time="10" condition=" !Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
 
-        <control type="textbox">
-          <top>375</top>
+        <control type="group">
           <left>100</left>
-          <label>[B]$VAR[video_heading_1506][/B]</label>
-          <textcolor>ffdedede</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>font_showcase_title</font>
-          <height>80</height>
-          <align>left</align>
-          <nested />
+          <top>370</top>
+          <animation effect="fade" start="0" end="100" time="1500" delay="50">Visible</animation>
+          <visible>!Container(1506).OnNext + !Container(1506).OnScrollNext</visible>
+          <visible>Control.IsVisible(1506)</visible>
+          <include content="new_addon_view_infospotlight" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight)">
+            <param name="id" value="1506" />
+            <param name="width" value="900" />
+          </include>
         </control>
 
-        <control type="textbox">
-          <left>100</left>
-          <top>460</top>
-          <height min="50" max="130">auto</height>
-          <label>$INFO[Container(1506).ListItem.Plot]</label>
-          <align>left</align>
-          <width>800</width>
-          <textcolor>b3dedede</textcolor>
-          <font>font_plotbox</font>
-          <scroll>true</scroll>
-          <scrollout>false</scrollout>
-          <autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
-        </control>
         <control type="label">
           <height>5</height>
         </control>
         <control type="group">
           <control type="image">
-            <top>320</top>
+            <top>270</top>
             <right>20</right>
-              <height>350</height>
+              <height>400</height>
               <width max="500">auto</width>
               <aspectratio align="right" aligny="bottom">keep</aspectratio>
               <texture background="true">$VAR[Widget_ClearArt_1506]</texture>
@@ -2238,6 +2225,197 @@
       </control>
     </definition>
   </include>
+
+  <include name="new_addon_view_infospotlight">
+    <param name="id" default="" />
+    <definition>
+      <control type="group">
+
+        <control type="grouplist">
+          <width>$PARAM[width]</width>
+          <left>10</left>
+          <top>-40</top>
+          <orientation>vertical</orientation>
+          <usecontrolcoords>true</usecontrolcoords>
+          <itemgap>0</itemgap>
+
+          <control type="label">
+            <label>[B]$VAR[video_heading_1506][/B]</label>
+            <textcolor>ffdedede</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <font>font_showcase_title</font>
+            <align>left</align>
+            <height>90</height>
+            <scroll>true</scroll>
+            <scrollout>false</scrollout>
+            <autoscroll delay="7000" time="5000" repeat="5000">true</autoscroll>
+            <nested />
+          </control>
+
+          <control type="grouplist">
+            <top>-20</top>
+            <height>60</height>
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>5</itemgap>
+            <left>0</left>
+            <right>$PARAM[titleright]</right>
+            <control type="group">
+              <width>200</width>
+              <left>-5</left>
+              <top>-20</top>
+              <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating)</visible>
+              <visible>!Skin.HasSetting(DisableStarRating)</visible>
+              <include content="Object_StarRating">
+                <param name="height" value="50" />
+                <param name="width" value="50" />
+                <param name="rating_prop" value="Container($PARAM[id]).ListItem.Rating" />
+              </include>
+            </control>
+            <control type="label" id="4$PARAM[id]">
+            	<left>-10</left>
+            	<width>140</width>
+            	<label>$VAR[liked_percent]</label>
+            	<textcolor>green</textcolor>
+            	<align>center</align>
+            	<font>font_tiny_bold</font>
+            	<visible>Skin.HasSetting(DisableLiked) + !String.IsEmpty(Control.GetLabel(4$PARAM[id]))</visible>
+            </control>
+            <control type="group">
+              <width>$PARAM[width]</width>
+              <visible>Skin.HasSetting(DisableLiked) + !String.IsEmpty(Control.GetLabel(4$PARAM[id]))</visible>
+              <control type="grouplist">
+                <orientation>horizontal</orientation>
+                <itemgap>10</itemgap>
+
+                <!-- Year -->
+                <control type="label">
+                  <width>auto</width>
+                  <label>| $INFO[Container($PARAM[id]).ListItem.Year]</label>
+                  <textcolor>white</textcolor>
+                  <align>center</align>
+                  <font>font_tiny</font>
+                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
+                </control>
+                <!-- MPAA -->
+                <control type="label" id="6$PARAM[id]">
+                  <width>auto</width>
+                  <align>center</align>
+                  <font>font_tiny</font>
+                  <textcolor>white</textcolor>
+                  <label fallback=" N/A">| $VAR[MPAA]</label>
+                </control>
+
+                <!-- Duration -->
+                <control type="label">
+                  <width>auto</width>
+                  <align>center</align>
+                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)</visible>
+                  <font>font_tiny</font>
+                  <textcolor>white</textcolor>
+                  <label>| $VAR[infoview_duration]</label>
+                </control>
+                <!-- Season Count -->
+                <control type="label">
+                  <width>auto</width>
+                  <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Property(TotalSeasons))</visible>
+                  <textcolor>white</textcolor>
+                  <align>center</align>
+                  <font>font_tiny</font>
+                  <textcolor>white</textcolor>
+                  <label>| $VAR[total_seasons_view506]</label>
+                </control>
+
+		            <!-- Aired -->
+                <control type="label">
+                  <width>auto</width>
+                  <align>center</align>
+                  <label>| Aired: $INFO[Container($PARAM[id]).ListItem.Premiered(dd MMM yyyy)]</label>
+                  <textcolor>$VAR[ColorHighlight2]</textcolor>
+                  <font>font_tiny</font>
+                  <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
+                </control>
+
+                <control type="label">
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <width min="50" max="350">auto</width>
+                    <label>| $VAR[Label_Genre]</label>
+                    <textcolor>white</textcolor>
+                    <font>font_tiny</font>
+                </control>
+
+                <control type="label">
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <width min="50" max="300">auto</width>
+                    <label>| $INFO[Container($PARAM[id]).ListItem.Country]</label>
+                    <textcolor>white</textcolor>
+                    <font>font_tiny</font>
+                </control>
+              </control>
+            </control>
+          </control>
+	  <control type="label">
+	    <height>10</height>
+	  </control>
+          <control type="label">
+            <top>-20</top>
+            <width>$PARAM[width]</width>
+            <height>35</height>
+            <font>font_small</font>
+            <textcolor>grey</textcolor>
+            <label>$INFO[Container($PARAM[id]).ListItem.Season,S,: ]$INFO[Container($PARAM[id]).ListItem.Episode,E, ] - $INFO[Container($PARAM[id]).ListItem.Title]</label>
+            <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
+          </control>
+          <control type="textbox">
+            <top>-20</top>
+            <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
+            <height min="20" max="130">auto</height>
+            <aligny>top</aligny>
+            <align>left</align>
+            <width>$PARAM[width]</width>
+            <textcolor>b3dedede</textcolor>
+            <font>font_plotbox</font>
+            <scroll>true</scroll>
+            <scrollout>false</scrollout>
+            <autoscroll delay="9000" time="3000" repeat="10000">true</autoscroll>
+            <visible>![Control.IsVisible(1505) | Control.IsVisible(1506)] + !String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+          </control>
+          <control type="textbox">
+            <top>-20</top>
+            <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
+            <height min="20" max="130">auto</height>
+            <aligny>top</aligny>
+            <align>left</align>
+            <width>$PARAM[width]</width>
+            <textcolor>b3dedede</textcolor>
+            <font>font_plotbox</font>
+            <scroll>true</scroll>
+            <scrollout>false</scrollout>
+            <autoscroll delay="9000" time="3000" repeat="10000">true</autoscroll>
+            <visible>[Control.IsVisible(1505) | Control.IsVisible(1506)] + !String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+          </control>
+          <control type="textbox">
+            <top>-20</top>
+            <label>[B]Channel:[/B] $INFO[Container($PARAM[id]).ListItem.Plot]</label>
+            <height min="20" max="130">auto</height>
+            <aligny>top</aligny>
+            <align>left</align>
+            <width>$PARAM[width]</width>
+            <textcolor>b3dedede</textcolor>
+            <font>font_plotbox</font>
+            <scroll>true</scroll>
+            <scrollout>false</scrollout>
+            <autoscroll delay="9000" time="3000" repeat="10000">true</autoscroll>
+            <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+          </control>
+
+        </control>
+      </control>
+    </definition>
+  </include>
+
   <include name="Object_Info_Netflix">
     <param name="hdsd_flag" default="false" />
     <param name="rottentomatoes" default="true" />
