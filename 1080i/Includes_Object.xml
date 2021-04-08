@@ -353,7 +353,7 @@
           <animation effect="fade" start="0" end="100" time="1500" delay="50">Visible</animation>
           <visible>!Container(1506).OnNext + !Container(1506).OnScrollNext</visible>
           <visible>Control.IsVisible(1506)</visible>
-          <include content="new_addon_view_infospotlight" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight)">
+          <include content="new_addon_view_infospotlight">
             <param name="id" value="1506" />
             <param name="width" value="900" />
           </include>
