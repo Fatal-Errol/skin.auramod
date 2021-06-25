@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2118">
-  <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <onunload>ClearProperty(TMDBHelper.WidgetContainer,Home)</onunload>
   <defaultcontrol>505</defaultcontrol>
   <controls>
       <include>Animation_Right</include>
@@ -9,7 +9,7 @@
     <control type="label">
       <left>110</left>
       <top>40</top>
-      <label>Networks</label>
+      <label>$LOCALIZE[31674]</label> <!-- Networks -->
       <height>40</height>
       <width>350</width>
       <align>left</align>

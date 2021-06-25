@@ -298,7 +298,7 @@
                     </item>
                     <item id="5">
                         <description>Customise Home Menu</description>
-                        <label>Customize Home</label>
+                        <label>$LOCALIZE[31753]</label> <!-- Customize Home -->
                         <label2>Menu • Submenu • Widgets</label2>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                         <icon>special://skin/extras/icons/tags.png</icon>
@@ -387,7 +387,7 @@
                     </item>
                     <item id="13">
                         <description>Filemanager</description>
-                        <label>File Manager</label>
+                        <label>$LOCALIZE[31739]</label> <!-- File Manager -->
                         <label2>$LOCALIZE[115] • $LOCALIZE[116] • $LOCALIZE[117][CR]$LOCALIZE[118] • $LOCALIZE[14226]</label2>
                         <onclick>activatewindow(filemanager)</onclick>
                         <icon>special://skin/extras/icons/files.png</icon>
@@ -481,9 +481,6 @@
 
 
 
-    <include name="netflix_largewidgets_top"><top>40</top></include>
-    <include name="netflix_largewidgets_height"><height>40</height></include>
-    <include name="netflix_smallwidgets_top"><top>-40</top></include>
 
     <include name="Widget">
         <param name="submenu" default="false" />
@@ -514,7 +511,11 @@
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-                <include condition="!Skin.HasSetting(DisableNetflixSmallWidget)">netflix_largewidgets_height</include>
+                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixSmallWidget) + Window.IsVisible(Home)">netflix_landscape_panel_top</include>
+                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixSmallWidget) + Window.IsVisible(Home)">netflix_landscape_panel_height</include>
+                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(Home)">netflix_landscape_panel_top_hub</include>
+                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(Home)">netflix_landscape_panel_height_hub</include>
+                <include condition="!$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(Home)">netflix_largewidgets_height_hub</include>
                 <include condition="Skin.HasSetting(DisableNetflixSmallWidget)">netflix_smallwidgets_top</include>
 		<animation effect="slide" end="0,-40" time="0" condition="!Window.IsVisible(Home) + !Window.IsVisible(3810) + !Window.IsVisible(3820)">Conditional</animation>
 		<animation effect="slide" end="0,-40" time="0" condition="Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
@@ -560,11 +561,15 @@
 	                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 			<onback condition="ControlGroup(5600).HasFocus">9000</onback>
 			<scrolltime tween="linear">400</scrolltime>
-			<include condition="Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)">netflix_largewidgets_top</include>
+			<include condition="!$PARAM[landscapepanelcondition] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]">netflix_largewidgets_top</include>
+      <include condition="$PARAM[landscapepanelcondition] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]">netflix_landscape_panel_top_2</include>
+      <include condition="$PARAM[landscapepanelcondition] + [!Window.IsVisible(Home) | !Window.IsVisible(3810) | !Window.IsVisible(3820)]">netflix_landscape_panel_top_2_hub</include>
 			<movement>$PARAM[movement]</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[landscapepanelcondition] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
+      <include condition="$PARAM[landscapepanelcondition] + Window.IsVisible(Home) + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">netflix_landscape_panel_height_2</include>
+      <include condition="$PARAM[landscapepanelcondition] + !Window.IsVisible(Home) + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">netflix_landscape_panel_height_2_hub</include>
 			<include condition="!$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height</include>
                         <include condition="$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height_poster</include>
 
@@ -604,11 +609,13 @@
 		    </control>
 		</definition>
 	    </include>
-	    <include name="Widget_Items_Submenu_Height"><height>140</height></include>
-	    <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
-	    <include name="Widget_Items_menu_Big_Height"><height>420</height></include>
-	    <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
-	    <include name="Widget_Items_menu_Small_Height_poster"><height>270</height></include>
+
+      <include name="Widget_Items_Submenu_Height">
+        <height>140</height>
+      </include>
+      <include name="Widget_Items_Submenu_Big_Height">
+        <height>widget_submenu_big_spacer</height>
+      </include>
 
 	    <include name="Widget_Label">
 		<definition>
@@ -633,9 +640,10 @@
 			    <include>Statusbar_Menubar_Items</include>
 			</control>
 			<control type="label">
-			    <left>-16</left>
+          <font>font_widgetbar_bold</font>
+			    <left>3</left>
 			    <textcolor>main_fg_100</textcolor>
-			    <label>$INFO[Container($PARAM[id]).ListItem.Property(similartitle), $LOCALIZE[19160] ,]</label>
+			    <label>$INFO[Container($PARAM[id]).ListItem.Property(similartitle)]</label>
 			    <include>Statusbar_Menubar_Items</include>
 			    <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Property(similartitle))</visible>
 			</control>
@@ -668,7 +676,7 @@
 			</control>
 	<!-- Add Ratings -->
                      <control type="label">
-                        <label>Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
+                        <label>$LOCALIZE[31789]: $INFO[ListItem.Premiered(dd MMM yyyy)]</label> <!-- Aired -->
                         <textcolor>$VAR[ColorHighlight2]</textcolor>
                         <font>font_tiny_bold</font>
                         <include>Statusbar_Menubar_Items</include>
@@ -693,6 +701,7 @@
                     <param name="top250" value="false" />
                     <param name="plot" value="true" />
                     <param name="studio" value="false" />
+                    <param name="studioid" value="90684" />
                 </include>
                 </control>
 			<control type="label">
@@ -717,7 +726,7 @@
 		<height>$PARAM[height]</height>
 		<preloaditems>2</preloaditems>
 		<onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
-		<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
+		<onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
 		<include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel)">
 		    <param name="id" value="$PARAM[id]" />
 		    <param name="aspect" value="$PARAM[aspect]" />

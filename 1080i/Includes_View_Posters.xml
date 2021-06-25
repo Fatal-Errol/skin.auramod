@@ -45,7 +45,6 @@
                 <top>view_pad</top>
                 <bottom>view_pad</bottom>
               <control type="panel" id="512">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,512,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,512,Home)</onfocus>
 		<height>1000</height>
 		<width>1100</width>
@@ -120,6 +119,8 @@
                     <param name="plot_height" value="210" />
                     <param name="imdbvotes" value="false" />
                     <param name="top250" value="false" />
+                    <param name="studioid_flags" value="90651" />
+                    <param name="studioid_ratings" value="90693" />
                 </include>
                 </control>
             </control>
@@ -272,7 +273,6 @@
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
         <control type="fixedlist" id="55">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,55,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,55,Home)</onfocus>
           <animation effect="slide" end="0,40" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
@@ -312,6 +312,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90652" />
+          <param name="studioid_ratings" value="90694" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="55" />
@@ -319,6 +321,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90661" />
         </include>
       </control>
     </control>
@@ -331,7 +334,6 @@
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
         <control type="panel" id="509">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,509,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,509,Home)</onfocus>
           <animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <bottom>-25</bottom>
@@ -363,6 +365,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90653" />
+          <param name="studioid_ratings" value="90695" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="509" />
@@ -370,6 +374,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90662" />
         </include>
       </control>
     </control>
@@ -384,7 +389,6 @@
         <control type="fixedlist" id="56">
           <animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,56,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,56,Home)</onfocus>
           <bottom>-55</bottom>
           <right>-70</right>
@@ -415,6 +419,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90654" />
+          <param name="studioid_ratings" value="90696" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="56" />
@@ -422,6 +428,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90663" />
         </include>
       </control>
     </control>
@@ -432,7 +439,6 @@
       <control type="group">
         <include>View_Pad</include>
         <control type="fixedlist" id="57">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,57,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,57,Home)</onfocus>
           <bottom>-10</bottom>
           <right>-70</right>
@@ -486,6 +492,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90655" />
+          <param name="studioid_ratings" value="90697" />
         </include>
       </control>
     </control>
@@ -496,7 +504,6 @@
       <control type="group">
         <include>View_Pad</include>
         <control type="wraplist" id="58">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,58,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,58,Home)</onfocus>
           <top>-10</top>
           <height>920</height>
@@ -532,6 +539,8 @@
               <param name="discart" value="true" />
               <param name="hdsd_flag" value="true" />
               <param name="plot_height" value="0" />
+              <param name="studioid_flags" value="90656" />
+              <param name="studioid_ratings" value="90698" />
             </include>
           </control>
           <control type="group">
@@ -544,6 +553,7 @@
               <param name="container" value="" />
               <param name="directory" value="color" />
               <param name="align" value="left" />
+              <param name="studioid" value="90670" />
             </include>
           </control>
           <control type="label">
@@ -582,7 +592,6 @@
           <include content="View_Forced">
             <param name="string" value="$LOCALIZE[31231]" />
           </include>
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,59,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,59,Home)</onfocus>
           <orientation>horizontal</orientation>
           <focusposition>0</focusposition>
@@ -644,13 +653,15 @@
           <control type="group">
             <left>40</left>
             <right>40</right>
-            <bottom>30</bottom>
+            <top>-8</top>
             <include content="Object_Info">
               <param name="plot_height" value="300" />
               <param name="id" value="59" />
               <param name="width" value="1068" />
               <param name="discart" value="false" />
               <param name="hdsd_flag" value="true" />
+              <param name="studioid_flags" value="90657" />
+              <param name="studioid_ratings" value="90699" />
             </include>
           </control>
         </control>
@@ -682,7 +693,6 @@
       <visible>Control.IsVisible(511)</visible>
       <control type="group">
         <control type="fixedlist" id="511">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,511,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,511,Home)</onfocus>
           <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
 	  <focusposition>0</focusposition>
@@ -763,7 +773,6 @@
       <visible>Control.IsVisible(510)</visible>
       <control type="group">
         <control type="fixedlist" id="510">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,510,Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,510,Home)</onfocus>
           <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
 	  <focusposition>0</focusposition>
@@ -885,7 +894,7 @@
 
 
         <control type="fixedlist" id="506">
-	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
+	  <onfocus>ClearProperty(TMDbHelper.WidgetContainer,Home)</onfocus>
           <visible>[Container.Content(files) | Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
           <onright condition="!Container(5056).IsUpdating">5056</onright>
@@ -1059,7 +1068,7 @@
 
 
         <control type="fixedlist" id="505">
-	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
+	  <onfocus>ClearProperty(TMDbHelper.WidgetContainer,Home)</onfocus>
           <visible>[Container.Content(playlists) | Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
@@ -1326,7 +1335,7 @@
                   <aligny>top</aligny>
                   <font>font_tiny</font>
                   <textcolor>dimgrey</textcolor>
-                  <label>EPISODE $INFO[Container(507).ListItem.Episode]</label>
+                  <label>$LOCALIZE[31791] $INFO[Container(507).ListItem.Episode]</label> <!-- EPISODE -->
                 </control>
                 <control type="label">
 		  <top>30</top>
@@ -1351,7 +1360,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[Container(50221).ListItem.Duration,,m]  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <label>$INFO[Container(50221).ListItem.Duration,,m]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- Aired -->
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>grey</textcolor>
@@ -1431,7 +1440,7 @@
                   <aligny>top</aligny>
                   <font>font_tiny</font>
                   <textcolor>dimgrey</textcolor>
-                  <label>EPISODE $INFO[Container(507).ListItem.Episode]</label>
+                  <label>$LOCALIZE[31791] $INFO[Container(507).ListItem.Episode]</label> <!-- EPISODE -->
                 </control>
                 <control type="label">
 		  <top>30</top>
@@ -1455,7 +1464,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[Container(50221).ListItem.Duration,,m]  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <label>$INFO[Container(50221).ListItem.Duration,,m]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- Aired -->
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>darkgrey</textcolor>
@@ -2238,7 +2247,7 @@
           </control>
           <control type="label">
             <right>30</right>
-            <label>$INFO[Container(504).ListItem.Property(UnWatchedEpisodes)] Episodes</label>
+            <label>$INFO[Container(504).ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[31500]</label> <!-- Episodes -->
             <align>right</align>
             <aligny>center</aligny>
             <font>font_small</font>
@@ -2287,7 +2296,7 @@
           </control>
           <control type="label">
             <right>30</right>
-            <label>$INFO[Container(504).ListItem.Property(UnWatchedEpisodes)] Episodes</label>
+            <label>$INFO[Container(504).ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[31500]</label> <!-- Episodes -->
             <align>right</align>
             <aligny>center</aligny>
             <font>font_small</font>
@@ -2332,42 +2341,43 @@
             <include>View_Landscape_Artwork</include>
           </control>
           <control type="label">
-            <top>160</top>
+            <top>180</top>
             <left>30</left>
             <font>font_medium_bold</font>
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
             <visible>!Container.Content(Seasons) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
-            <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
           </control>
           <control type="progress">
             <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
-            <left>30</left>
-            <top>260</top>
+            <left>9</left>
+            <top>286</top>
             <description>progress bar</description>
-            <width>430</width>
-            <height>9</height>
+            <width>501</width>
+            <height>4</height>
             <align>center</align>
-            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <texturebg colordiffuse="white" border="2">diffuse/progress-bg.png</texturebg>
             <lefttexture></lefttexture>
-            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <midtexture colordiffuse="red" border="2">diffuse/progress-bg.png</midtexture>
             <righttexture></righttexture>
+            <reveal>true</reveal>
             <info>ListItem.PercentPlayed</info>
 	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="progress">
             <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
-            <left>30</left>
-            <top>260</top>
+            <left>9</left>
+            <top>286</top>
             <description>progress bar</description>
-            <width>430</width>
-            <height>9</height>
+            <width>501</width>
+            <height>4</height>
             <align>center</align>
-            <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+            <texturebg colordiffuse="red" border="2">diffuse/progress-bg.png</texturebg>
             <lefttexture></lefttexture>
-            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <midtexture colordiffuse="red" border="2">diffuse/progress-bg.png</midtexture>
             <righttexture></righttexture>
+            <reveal>true</reveal>
             <info>ListItem.PercentPlayed</info>
 	    <visible>!Container.Content(seasons)</visible>
           </control>
@@ -2447,42 +2457,45 @@
             </control>
           </control>
           <control type="label">
-            <top>160</top>
+            <top>180</top>
             <left>30</left>
             <font>font_medium_bold</font>
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
             <visible>!Container.Content(Seasons) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
-            <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
           </control>
           <control type="progress">
+            <include>Animation_FocusBounce_Small</include>
             <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
-            <left>30</left>
-            <top>260</top>
+            <left>9</left>
+            <top>286</top>
             <description>progress bar</description>
-            <width>430</width>
-            <height>9</height>
+            <width>501</width>
+            <height>4</height>
             <align>center</align>
-            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <texturebg colordiffuse="white" border="2">diffuse/progress-bg.png</texturebg>
             <lefttexture></lefttexture>
-            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <midtexture colordiffuse="red" border="2">diffuse/progress-bg.png</midtexture>
             <righttexture></righttexture>
+            <reveal>true</reveal>
             <info>ListItem.PercentPlayed</info>
 	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="progress">
+            <include>Animation_FocusBounce_Small</include>
             <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
-            <left>30</left>
-            <top>260</top>
+            <left>9</left>
+            <top>286</top>
             <description>progress bar</description>
-            <width>430</width>
-            <height>9</height>
+            <width>501</width>
+            <height>4</height>
             <align>center</align>
-            <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+            <texturebg colordiffuse="red" border="2">diffuse/progress-bg.png</texturebg>
             <lefttexture></lefttexture>
-            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <midtexture colordiffuse="red" border="2">diffuse/progress-bg.png</midtexture>
             <righttexture></righttexture>
+            <reveal>true</reveal>
             <info>ListItem.PercentPlayed</info>
 	    <visible>!Container.Content(seasons)</visible>
           </control>
@@ -3168,7 +3181,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(507) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)]</visible>
         </control>
 
             <control type="group">

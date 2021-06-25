@@ -105,9 +105,8 @@
               <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_TVNextAired_AuraWidget</include>
               <include condition="Skin.HasSetting(EnableSpotlight)">Widget_LiveTV</include>
             </control>
-              <!-- Look into why movies and shows cast is not working on multi spotlights at another time 
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include>
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>-->
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
             <!-- Home Widget -->
             <include>Widgets_Grouplist</include>
             <include>WidgetHubScroll</include>
@@ -538,8 +537,6 @@
         </control>
       </control>
       <control type="list" id="$PARAM[id]">
-       <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
-       <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
        <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
        <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
@@ -734,7 +731,7 @@
         <!-- Add Airdate -->
         <control type="label">
           <top>-2</top>
-          <label>| Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
+          <label>| $LOCALIZE[31789]: $INFO[ListItem.Premiered(dd MMM yyyy)]</label> <!-- Aired -->
           <textcolor>$VAR[ColorHighlight2]</textcolor>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
@@ -744,7 +741,7 @@
         </control>
         <control type="label">
           <top>-2</top>
-          <label>| Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
+          <label>| $LOCALIZE[31789]: $INFO[ListItem.Premiered(dd MMM yyyy)]</label> <!-- Aired -->
           <textcolor>$VAR[ColorHighlight2]</textcolor>
           <font>font_widgetbar_bold</font>
           <include>Statusbar_Menubar_Items</include>
@@ -780,6 +777,10 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
+            <param name="studioid" value="1$PARAM[id]" />
+            <param name="studiotop" value="-2" />
+            <param name="studioheight" value="70" />
+            <param name="studiowidth" value="70" />
           </include>
         </control>
         <control type="grouplist">
@@ -807,6 +808,10 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="2$PARAM[id]" />
+            <param name="studiotop" value="-2" />
+            <param name="studioheight" value="70" />
+            <param name="studiowidth" value="70" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->
@@ -833,7 +838,6 @@
     <height>$PARAM[height]</height>
     <preloaditems>2</preloaditems>
     <onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
-    <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
     <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
     <include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel) + !Window.IsVisible(3910)">
       <param name="id" value="$PARAM[id]" />
@@ -1938,7 +1942,7 @@
       <control type="label">
         <left>-40</left>
         <top>50</top>
-        <label>Live TV</label>
+        <label>$LOCALIZE[31103]</label> <!-- Live TV -->
         <height>40</height>
         <width>350</width>
         <align>center</align>
@@ -2126,7 +2130,7 @@
               <align>center</align>
               <aligny>center</aligny>
               <textcolor>bbwhite</textcolor>
-              <label>Loading Channels</label>
+              <label>$LOCALIZE[31752]</label> <!-- Loading Channels -->
               <scroll>false</scroll>
             </control>
           </control>

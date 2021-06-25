@@ -10,6 +10,51 @@
           <font>font_tiny</font>
   </include>
 
+  <include name="netflix_largewidgets_top">
+    <top>80</top>
+  </include>
+  <include name="netflix_largewidgets_height">
+    <height>0</height>
+  </include>
+  <include name="netflix_largewidgets_height_hub">
+    <height>40</height>
+  </include>
+  <include name="netflix_smallwidgets_top">
+    <top>-40</top>
+  </include>
+  <include name="Widget_Items_menu_Big_Height">
+    <height>420</height>
+  </include>
+  <include name="Widget_Items_menu_Small_Height">
+    <height>210</height>
+  </include>
+  <include name="Widget_Items_menu_Small_Height_poster">
+    <height>270</height>
+  </include>
+  <include name="netflix_landscape_panel_top">
+    <top>-10</top>
+  </include>
+  <include name="netflix_landscape_panel_height">
+    <height>10</height>
+  </include>
+  <include name="netflix_landscape_panel_top_2">
+    <top>70</top>
+  </include>
+  <include name="netflix_landscape_panel_height_2">
+    <height>430</height>
+  </include>
+  <include name="netflix_landscape_panel_top_hub">
+    <top>-10</top>
+  </include>
+  <include name="netflix_landscape_panel_height_hub">
+    <height>35</height>
+  </include>
+  <include name="netflix_landscape_panel_top_2_hub">
+    <top>70</top>
+  </include>
+  <include name="netflix_landscape_panel_height_2_hub">
+    <height>430</height>
+  </include>
   <include name="Widget_Movement_Default">
     <movement>$PARAM[movement]</movement>
   </include>
@@ -171,9 +216,9 @@
     <include name="Defs_InfoList_OnClick">
         <param name="prevent_del" default="prevent_del" />
         <definition>
-            <onclick condition="String.IsEmpty(ListItem.DBID) | [!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow)]">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,$PARAM[prevent_del])</onclick>
-            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,movie)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.Label,videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D],call_id=1137,delay=0.35,$PARAM[prevent_del])</onclick>
-            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.Label,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D],call_id=1137,delay=0.35,$PARAM[prevent_del])</onclick>
+            <onclick condition="String.IsEmpty(ListItem.DBID) | [!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow)]">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,$PARAM[prevent_del])</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,movie)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.Label,videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D],call_auto=1190,delay=0.35,$PARAM[prevent_del])</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.Label,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D],call_auto=1190,delay=0.35,$PARAM[prevent_del])</onclick>
         </definition>
     </include>
 
@@ -217,7 +262,7 @@
         <value condition="String.IsEmpty(Window().Property(item.info.tvshowtitle)) + !String.IsEmpty(Window().Property(item.info.title)) + !String.IsEmpty(Window().Property(item.info.year))">query=$INFO[Window().Property(item.info.title)]&amp;year=$INFO[Window().Property(item.info.title)]</value>
         <value condition="!String.IsEmpty(Window().Property(item.info.tvshowtitle)) + !String.IsEmpty(Window().Property(item.info.year))">query=$INFO[Window().Property(item.info.tvshowtitle)]&amp;year=$INFO[Window().Property(item.info.title)]</value>
         <value condition="[String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(ListItem.Property(imdb_id))">imdb_id=$INFO[ListItem.Property(imdb_id)]</value>
-        <value condition="[String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(ListItem.IMDBNumber) + !String.StartsWith(ListItem.IMDBNumber,xx)">imdb_id=$INFO[ListItem.IMDBNumber]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt)">imdb_id=$INFO[ListItem.IMDBNumber]</value>
         <value condition="[String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(ListItem.TvShowTitle)">query=$INFO[ListItem.TvShowTitle]</value>
         <value condition="!String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.Year)">query=$INFO[ListItem.Title]&amp;year=$INFO[ListItem.Year]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">query=$INFO[ListItem.Title]</value>
@@ -228,7 +273,7 @@
 
    <variable name="Info_Param_IMDB_or_QUERY_1506">
         <value condition="[String.IsEqual(Container(1506).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1506).ListItem.Property(imdb_id))">imdb_id=$INFO[Container(1506).ListItem.Property(imdb_id)]</value>
-        <value condition="[String.IsEqual(Container(1506).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1506).ListItem.IMDBNumber) + !String.StartsWith(Container(1506).ListItem.IMDBNumber,xx)">imdb_id=$INFO[Container(1506).ListItem.IMDBNumber]</value>
+        <value condition="[String.IsEqual(Container(1506).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1506).ListItem.IMDBNumber) + String.StartsWith(Container(1506).ListItem.IMDBNumber,tt)">imdb_id=$INFO[Container(1506).ListItem.IMDBNumber]</value>
         <value condition="[String.IsEqual(Container(1506).ListItem.DBType,season) | String.IsEqual(Container(1506).ListItem.DBType,tvshow) | String.IsEqual(Container(1506).ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(Container(1506).ListItem.TvShowTitle)">query=$INFO[Container(1506).ListItem.TvShowTitle]</value>
         <value condition="!String.IsEmpty(Container(1506).ListItem.Title) + !String.IsEmpty(Container(1506).ListItem.Year)">query=$INFO[Container(1506).ListItem.Title]&amp;year=$INFO[Container(1506).ListItem.Year]</value>
         <value condition="!String.IsEmpty(Container(1506).ListItem.Title)">query=$INFO[Container(1506).ListItem.Title]</value>
@@ -241,10 +286,13 @@
         <value condition="String.IsEqual(Container(1506).ListItem.DBType,season) | String.IsEqual(Container(1506).ListItem.DBType,tvshow) | String.IsEqual(Container(1506).ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episode)">type=tv</value>
     </variable>
 
+    <variable name="Cast_Widget_Content_1506">
+        <value condition="!Integer.IsEqual(Container(1506).NumItems,0) + !Container(1506).IsUpdating + !Window.IsVisible(DialogButtonMenu.xml)">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1506]&amp;$VAR[Info_Param_IMDB_or_QUERY_1506]</value>
+    </variable>
 
    <variable name="Info_Param_IMDB_or_QUERY_1505">
         <value condition="[String.IsEqual(Container(1505).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1505).ListItem.Property(imdb_id))">imdb_id=$INFO[Container(1505).ListItem.Property(imdb_id)]</value>
-        <value condition="[String.IsEqual(Container(1505).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1505).ListItem.IMDBNumber) + !String.StartsWith(Container(1505).ListItem.IMDBNumber,xx)">imdb_id=$INFO[Container(1505).ListItem.IMDBNumber]</value>
+        <value condition="[String.IsEqual(Container(1505).ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(Container(1505).ListItem.IMDBNumber) + String.StartsWith(Container(1505).ListItem.IMDBNumber,tt)">imdb_id=$INFO[Container(1505).ListItem.IMDBNumber]</value>
         <value condition="[String.IsEqual(Container(1505).ListItem.DBType,season) | String.IsEqual(Container(1505).ListItem.DBType,tvshow) | String.IsEqual(Container(1505).ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(Container(1505).ListItem.TvShowTitle)">query=$INFO[Container(1505).ListItem.TvShowTitle]</value>
         <value condition="!String.IsEmpty(Container(1505).ListItem.Title) + !String.IsEmpty(Container(1505).ListItem.Year)">query=$INFO[Container(1505).ListItem.Title]&amp;year=$INFO[Container(1505).ListItem.Year]</value>
         <value condition="!String.IsEmpty(Container(1505).ListItem.Title)">query=$INFO[Container(1505).ListItem.Title]</value>
@@ -257,6 +305,9 @@
         <value condition="String.IsEqual(Container(1505).ListItem.DBType,season) | String.IsEqual(Container(1505).ListItem.DBType,tvshow) | String.IsEqual(Container(1505).ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episode)">type=tv</value>
     </variable>
 
+    <variable name="Cast_Widget_Content_1505">
+        <value condition="!Integer.IsEqual(Container(1505).NumItems,0) + !Container(1505).IsUpdating + !Window.IsVisible(DialogButtonMenu.xml)">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1505]&amp;$VAR[Info_Param_IMDB_or_QUERY_1505]</value>
+    </variable>
 
     <variable name="Info_Param_Type">
         <value condition="String.IsEmpty(Window().Property(item.info.season)) + !String.IsEmpty(Window().Property(item.info.title))">type=movie</value>
@@ -297,13 +348,13 @@
 
     <variable name="Info_FromDirector">
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Director) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[ListItem.Director]&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value>
-        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Director)) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Window(Home).Property(TMDBHelper.ListItem.Director)]&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Director)) + System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31697])">plugin://plugin.video.themoviedb.helper/?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Window(Home).Property(TMDBHelper.ListItem.Director)]&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value> <!-- By Director -->
         <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22director%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[ListItem.Director]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
     </variable>
 
     <variable name="Info_FromStudio">
         <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Studio)">plugin://plugin.video.themoviedb.helper?info=discover&amp;$VAR[Info_Param_Type]&amp;with_companies=$INFO[ListItem.Studio]</value>
-        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Studio.1.Name))">plugin://plugin.video.themoviedb.helper?info=discover&amp;$VAR[Info_Param_Type]&amp;with_companies=$INFO[Window(Home).Property(TMDBHelper.ListItem.Studio.1.Name)]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Studio.1.Name)) + String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31698])">plugin://plugin.video.themoviedb.helper?info=discover&amp;$VAR[Info_Param_Type]&amp;with_companies=$INFO[Window(Home).Property(TMDBHelper.ListItem.Studio.1.Name)]</value> <!-- By Studio -->
         <value condition="Container.Content(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22studio%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[ListItem.Studio]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
     </variable>
 
@@ -444,7 +495,7 @@
         <top>-85</top>
         <texture>common/shadowspot.png</texture>
         <height>300</height>
-        <width>1000</width>
+        <width>1250</width>
         <include>Animation_FadeIn_Slide</include>
     </include>
         <include name="Defs_ShadowBack_Fullscreen_volume">
