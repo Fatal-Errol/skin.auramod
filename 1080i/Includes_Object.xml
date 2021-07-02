@@ -320,7 +320,7 @@
         <height>70</height>
         <textoffsetx>15</textoffsetx>
         <align>left</align>
-        <label>Season $INFO[ListItem.Season]</label>
+        <label>$LOCALIZE[31750] $INFO[ListItem.Season]</label> <!-- Season -->
         <textcolor>white</textcolor>
         <shadowcolor>black</shadowcolor>
         <font>font_tiny_bold</font>
@@ -584,7 +584,7 @@
         <effect type="zoom" end="105" time="75" tween="sine" easing="out" center="auto" />
         <effect type="zoom" end="95.2380952" time="225" tween="sine" delay="100" easing="out" center="auto" />
       </animation>
-      <visible>!String.IsEmpty(Container(1505).ListItem.Label) + Control.IsVisible(1506) + [Control.HasFocus(1506) | Control.HasFocus(300) | Control.HasFocus(401) | String.IsEqual(Container(330).CurrentItem,1) | Control.HasFocus(30222)]</visible>
+      <visible>!String.IsEmpty(Container(1506).ListItem.Label) + Control.IsVisible(1506) + [Control.HasFocus(1506) | Control.HasFocus(300) | Control.HasFocus(401) | String.IsEqual(Container(330).CurrentItem,1) | Control.HasFocus(30222)]</visible>
       <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
       <animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(7711).IsUpdating">Conditional</animation>
       <animation effect="fade" start="0" end="100" delay="700" time="400" tween="quadratic" reversible="false" condition="!String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1)">Conditional</animation>
@@ -732,8 +732,8 @@
         <autoscroll time="15000">Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
         <scrolltime>500</scrolltime>
         <onup>300</onup>
-        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]">330</ondown>
         <movement>1</movement>
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
@@ -1330,7 +1330,7 @@
         <description>Play</description>
         <width>240</width>
         <height>80</height>
-        <label>PLAY</label>
+        <label>$LOCALIZE[31714]</label>
         <align>center</align>
         <textcolor>grey</textcolor>
         <focusedcolor>black</focusedcolor>
@@ -1355,7 +1355,7 @@
         <width>280</width>
         <height>80</height>
         <align>center</align>
-        <label>More Info</label>
+        <label>$LOCALIZE[31715]</label>
         <textcolor>white</textcolor>
         <focusedcolor>black</focusedcolor>
         <texturefocus colordiffuse="d9ffffff" border="5">common/rounded-shadow8.png</texturefocus>
@@ -1497,7 +1497,7 @@
           <visible>Integer.IsEqual(ListItem.PercentPlayed,0) + String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)</visible>
           <control type="label">
             <width>450</width>
-            <label>Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on</label>
+            <label>$LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)] $LOCALIZE[31282]</label> <!-- Aired DAY on -->
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
             <font>font_small</font>
@@ -6203,7 +6203,7 @@
                 <font>widget_trakt_title2</font>
                 <textcolor>white</textcolor>
                 <scroll>false</scroll>
-                <label>$INFO[Container($PARAM[id]).ListItem.Duration(h),,$LOCALIZE[31036]] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,$LOCALIZE[31020]]</label> <!-- Duration h HOURS Duration m MINUTES -->
+                <label>$INFO[Container($PARAM[id]).ListItem.Duration(h),,$LOCALIZE[31036]] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,$LOCALIZE[31020]]</label> <!-- DURATION(hours) h DURATION(minutes) m -->
               </control>
             </control>
             <!-- Season Count -->

@@ -63,7 +63,7 @@
             <param name="orientation" value="vertical" />
             <param name="posters_nolabel" default="true" />
           </include>
-		    
+
             </control>
 
             <control type="group">
@@ -718,7 +718,7 @@
           </include>
         </control>
 
-     <control type="group"> 
+     <control type="group">
           <visible>[Control.HasFocus(300) | Control.HasFocus(511) | Control.HasFocus(5057)] +  !Container(511).ListItem.IsParentFolder</visible>
 	  <posy>90</posy>
            <control type="group">
@@ -798,7 +798,7 @@
           </include>
         </control>
 
-     <control type="group"> 
+     <control type="group">
           <visible>[Control.HasFocus(300) | Control.HasFocus(510) | Control.HasFocus(5056)] +  !Container(510).ListItem.IsParentFolder</visible>
 	  <posy>90</posy>
 
@@ -931,7 +931,7 @@
 	  <scroll>true</scroll>
 	  <visible>Control.HasFocus(506)</visible>
         </control>
-        </control> 
+        </control>
         <control type="image">
           <width>90</width>
           <height>120</height>
@@ -965,7 +965,7 @@
          <param name="id" value="5056" />
        </include>
       </control>
-      <control type="group"> 
+      <control type="group">
           <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
           <visible>[Control.HasFocus(300) | Control.HasFocus(506) | Control.HasFocus(5056)] +  !Container(506).ListItem.IsParentFolder</visible>
           <animation effect="fade" start="100" end="0" condition="Container(5056).IsUpdating">Conditional</animation>
@@ -1107,7 +1107,7 @@
 	  <scroll>true</scroll>
 	  <visible>Control.HasFocus(505)</visible>
         </control>
-        </control> 
+        </control>
         <control type="image">
           <width>90</width>
           <height>120</height>
@@ -1141,7 +1141,7 @@
          <param name="id" value="5055" />
        </include>
       </control>
-      <control type="group"> 
+      <control type="group">
           <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <visible>[Control.HasFocus(300) | Control.HasFocus(505) | Control.HasFocus(5055)] +  !Container(505).ListItem.IsParentFolder</visible>
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
@@ -1360,7 +1360,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[Container(50221).ListItem.Duration,,m]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- Aired -->
+                  <label>$INFO[Container(50221).ListItem.Duration,,$LOCALIZE[31020]]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- DURATION() m Aired DATE -->
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>grey</textcolor>
@@ -1464,7 +1464,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[Container(50221).ListItem.Duration,,m]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- Aired -->
+                  <label>$INFO[Container(50221).ListItem.Duration,,$LOCALIZE[31020]]  $LOCALIZE[31789] $INFO[ListItem.Premiered(DDD MMM yyyy)]</label> <!-- DURATION() m Aired DATE -->
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>darkgrey</textcolor>
